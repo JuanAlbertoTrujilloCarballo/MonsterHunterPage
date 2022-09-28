@@ -1,0 +1,7 @@
+{
+  "name": "monsterHunter",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
