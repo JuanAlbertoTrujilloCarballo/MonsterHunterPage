@@ -7,14 +7,22 @@
 <ion-content>
 
   <ion-list>
-    <ion-item *ngFor="let m of monsters">
+    <ion-item *ngFor="let m of Monsters">
       <ion-label>
-        <h1>{{m.id}}</h1>
-        <h2><b>Nombre</b>:{{m.name}}</h2>
-        <p><b>Titulo</b>:{{m.title}}</p>
-        <p><b>Debilidad</b>:{{m.weakness}}</p>
+        <h1><b>Nombre</b>:{{m.name}}</h1>
+        <h2><b>Titulo</b>:{{m.title}}</h2>
+        <h3><b>Debilidad</b>:{{m.weakness}}</h3>
       </ion-label>
+      <div class="item-note" item-end>
+        <button ion-button clear [routerLink]="['/my-monsters-update/', m.id]">
+          <ion-icon name="create" style="zoom:1.5"></ion-icon>
+        </button>
+        <button ion-button clear (click)="removeMonster(m)">
+          <ion-icon name="trash" style="zoom:1.5"></ion-icon>
+        </button>
+      </div>
     </ion-item>
   </ion-list>
 
+  <ion-button expand="block" (click)="gotoHome()">Home</ion-button>
 </ion-content>

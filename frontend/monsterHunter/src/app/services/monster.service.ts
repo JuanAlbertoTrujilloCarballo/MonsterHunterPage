@@ -29,6 +29,14 @@ constructor(private httpClient: HttpClient) { }
 //   return this.httpClient.get(this.endpoint);
 // }
 
+getMonster(id): Observable<Monster[]> {
+  return this.httpClient.get<Monster[]>(this.endpoint + '/' + id)
+    .pipe(
+      tap(_ => console.log(`Monster fetched: ${id}`)),
+      catchError(this.handleError<Monster[]>(`Get monster id=${id}`))
+    );
+}
+
 getMonsters(): Observable<Monster[]> {
   return this.httpClient.get<Monster[]>(this.endpoint)
     .pipe(

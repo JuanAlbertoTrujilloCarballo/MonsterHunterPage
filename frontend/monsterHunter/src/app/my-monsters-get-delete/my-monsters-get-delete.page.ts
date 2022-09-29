@@ -20,12 +20,31 @@ export class MyMonstersGetDeletePage implements OnInit {
     this.getAllMonsters();
   }
 
+  gotoHome(){
+    this.router.navigateByUrl('/home');
+  }
+
   getAllMonsters() {
     this.monsterService.getMonsters().subscribe(response => {
       this.Monsters = response;
     });
   }
 
-  
+  ionViewDidEnter() {
+    this.monsterService.getMonsters().subscribe((response) => {
+      this.Monsters = response;
+    })
+  }
+
+  removeMonster(monster, i) {
+    if (window.confirm('Are you sure')) {
+      this.monsterService.deleteMonster(monster.id)
+      .subscribe(() => {
+          this.ionViewDidEnter();
+          console.log('Monster deleted!')
+        }
+      )
+    }
+  }
 
 }
