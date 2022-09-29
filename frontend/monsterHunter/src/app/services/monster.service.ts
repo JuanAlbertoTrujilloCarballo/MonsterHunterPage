@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
+
 export class Monster {
   _id: number;
   name: string;
@@ -20,7 +21,7 @@ export class MonsterService {
 
   httpOptions ={
 
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
 };
 
 constructor(private httpClient: HttpClient) { }
@@ -46,7 +47,11 @@ getMonsters(): Observable<Monster[]> {
 }
 
 createMonster(monster: Monster): Observable<any> {
-  return this.httpClient.post<Monster>(this.endpoint, JSON.stringify(monster), this.httpOptions)
+  const data = new URLSearchParams();
+  data.append('name',monster.name);
+  data.append('title',monster.title);
+  data.append('weakness',monster.weakness);
+  return this.httpClient.post<Monster>(this.endpoint, data.toString(), this.httpOptions)
     .pipe(
       catchError(this.handleError<Monster>('Error occured'))
     );
@@ -61,10 +66,14 @@ deleteMonster(id): Observable<Monster[]> {
 }
 
 updateMonster(id, monster: Monster): Observable<any> {
-  return this.httpClient.put(this.endpoint + '/' + id, JSON.stringify(monster), this.httpOptions)
+  const data = new URLSearchParams();
+  data.append('name',monster.name);
+  data.append('title',monster.title);
+  data.append('weakness',monster.weakness);
+  return this.httpClient.put(this.endpoint + '/' + id, data.toString(), this.httpOptions)
     .pipe(
-      tap(_ => console.log(`User updated: ${id}`)),
-      catchError(this.handleError<Monster[]>('Update user'))
+      tap(_ => console.log(`Monster updated: ${id}`)),
+      catchError(this.handleError<Monster[]>('Update monster'))
     );
 }
 

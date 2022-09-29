@@ -16,7 +16,7 @@ export class MyMonstersCreatePage implements OnInit {
     private router: Router,
     public formBuilder: FormBuilder,
     private zone: NgZone,
-    private monsterCrudService: MonsterService    
+    private monsterService: MonsterService    
   ) {
     this.monsterForm = this.formBuilder.group({
       name: [''],
@@ -31,7 +31,7 @@ export class MyMonstersCreatePage implements OnInit {
     if (!this.monsterForm.valid) {
       return false;
     } else {
-      this.monsterCrudService.createMonster(this.monsterForm.value)
+      this.monsterService.createMonster(this.monsterForm.value)
         .subscribe((response) => {
           this.zone.run(() => {
             this.monsterForm.reset();

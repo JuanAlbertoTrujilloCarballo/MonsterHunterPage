@@ -13,6 +13,9 @@
         <h2><b>Titulo</b>:{{m.title}}</h2>
         <h3><b>Debilidad</b>:{{m.weakness}}</h3>
       </ion-label>
+      <ion-thumbnail slot="start">
+        <ion-img [src]="m.src"></ion-img>
+      </ion-thumbnail>
       <div class="item-note" item-end>
         <button ion-button clear [routerLink]="['/my-monsters-update/', m.id]">
           <ion-icon name="create" style="zoom:1.5"></ion-icon>

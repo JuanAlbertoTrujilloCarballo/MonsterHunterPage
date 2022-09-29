@@ -24,7 +24,7 @@ const routes: Routes = [
     loadChildren: () => import('./my-monsters-create/my-monsters-create.module').then( m => m.MyMonstersCreatePageModule)
   },
   {
-    path: 'my-monsters-update',
+    path: 'my-monsters-update/:id',
     loadChildren: () => import('./my-monsters-update/my-monsters-update.module').then( m => m.MyMonstersUpdatePageModule)
   },
 
