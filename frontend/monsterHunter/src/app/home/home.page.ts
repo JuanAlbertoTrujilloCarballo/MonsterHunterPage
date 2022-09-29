@@ -10,8 +10,12 @@ export class HomePage {
 
   constructor(private router: Router) {}
 
-  gotoMyMonsters(){
-    this.router.navigateByUrl('/my-monsters');
+  gotoGetMyMonsters(){
+    this.router.navigateByUrl('/my-monsters-get-delete');
+  }
+
+  gotoCreateMyMonsters(){
+    this.router.navigateByUrl('/my-monsters-create');
   }
 
 }

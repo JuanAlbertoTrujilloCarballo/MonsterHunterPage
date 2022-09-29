@@ -15,6 +15,19 @@ const routes: Routes = [
     path: 'my-monsters',
     loadChildren: () => import('./my-monsters/my-monsters.module').then( m => m.MyMonstersPageModule)
   },
+  {
+    path: 'my-monsters-get-delete',
+    loadChildren: () => import('./my-monsters-get-delete/my-monsters-get-delete.module').then( m => m.MyMonstersGetDeletePageModule)
+  },
+  {
+    path: 'my-monsters-create',
+    loadChildren: () => import('./my-monsters-create/my-monsters-create.module').then( m => m.MyMonstersCreatePageModule)
+  },
+  {
+    path: 'my-monsters-update',
+    loadChildren: () => import('./my-monsters-update/my-monsters-update.module').then( m => m.MyMonstersUpdatePageModule)
+  },
+
 ];
 
 @NgModule({
