@@ -25,12 +25,26 @@
         </ion-input>
       </ion-item>      
 
+      <ion-item>
+        <ion-label position="floating">Url of image</ion-label>
+        <ion-input formControlName="weakness" type="text" required>
+        </ion-input>
+      </ion-item>   
+
+      <!-- Imagen de prueba
+      https://i.pinimg.com/originals/31/88/eb/3188eb43739c96a3137280ca1fdc3c1e.jp -->
+
       <ion-row>
         <ion-col>
           <ion-button type="submit" color="success" expand="block">Reemplazar</ion-button>
         </ion-col>
       </ion-row>
       
+  
+
     </form>
   </ion-list>
+  
+  <ion-button expand="block" (click)="gotoGetMyMonsters()">Show monsters</ion-button>
+
 </ion-content>

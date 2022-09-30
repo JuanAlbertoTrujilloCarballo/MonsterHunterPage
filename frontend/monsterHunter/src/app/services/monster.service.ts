@@ -9,6 +9,7 @@ export class Monster {
   name: string;
   title: string;
   weakness: string;
+  url: string;
 }
 
 @Injectable({
@@ -51,6 +52,7 @@ createMonster(monster: Monster): Observable<any> {
   data.append('name',monster.name);
   data.append('title',monster.title);
   data.append('weakness',monster.weakness);
+  data.append('url',monster.url);
   return this.httpClient.post<Monster>(this.endpoint, data.toString(), this.httpOptions)
     .pipe(
       catchError(this.handleError<Monster>('Error occured'))
@@ -70,6 +72,7 @@ updateMonster(id, monster: Monster): Observable<any> {
   data.append('name',monster.name);
   data.append('title',monster.title);
   data.append('weakness',monster.weakness);
+  data.append('url',monster.url);
   return this.httpClient.put(this.endpoint + '/' + id, data.toString(), this.httpOptions)
     .pipe(
       tap(_ => console.log(`Monster updated: ${id}`)),

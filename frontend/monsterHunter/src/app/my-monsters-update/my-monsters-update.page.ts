@@ -27,7 +27,8 @@ export class MyMonstersUpdatePage implements OnInit {
     this.updateMonsterFg = this.formBuilder.group({
       name: [''],
       title: [''],
-      weakness: ['']
+      weakness: [''],
+      url: ['']
     })
   }
 
@@ -36,7 +37,8 @@ export class MyMonstersUpdatePage implements OnInit {
       this.updateMonsterFg.setValue({
         name: data['name'],
         title: data['title'],
-        weakness: data['weakness']
+        weakness: data['weakness'],
+        url: data['url']
       });
     });
   }
@@ -48,9 +50,13 @@ export class MyMonstersUpdatePage implements OnInit {
       this.monsterService.updateMonster(this.id, this.updateMonsterFg.value)
         .subscribe(() => {
           this.updateMonsterFg.reset();
-          this.router.navigate(['/my-monster-get-delete']);
+          this.router.navigate(['/my-monsters-get-delete']);
         })
     }
+  }
+
+  gotoGetMyMonsters(){
+    this.router.navigateByUrl('/my-monsters-get-delete');
   }
 
 }

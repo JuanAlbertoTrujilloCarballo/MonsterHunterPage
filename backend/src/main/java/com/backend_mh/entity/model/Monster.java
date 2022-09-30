@@ -23,8 +23,22 @@ public class Monster implements Serializable{
 	private String title;
 	
 	private String weakness;
+	
+	//  /*
+	 private String url;
+	 
 
-	public long getId() {
+	public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+  
+  //  */
+
+  public long getId() {
 		return id;
 	}
 

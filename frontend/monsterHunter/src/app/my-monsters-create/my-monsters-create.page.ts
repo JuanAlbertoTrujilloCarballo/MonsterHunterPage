@@ -21,7 +21,8 @@ export class MyMonstersCreatePage implements OnInit {
     this.monsterForm = this.formBuilder.group({
       name: [''],
       title: [''],
-      weakness: ['']
+      weakness: [''],
+      url: ['']
     })
   }
 

@@ -18,8 +18,4 @@ export class HomePage {
     this.router.navigateByUrl('/my-monsters-create');
   }
 
-  gotoUpdateMyMonsters(){
-    this.router.navigateByUrl('/my-monsters-update');
-  }
-
 }
