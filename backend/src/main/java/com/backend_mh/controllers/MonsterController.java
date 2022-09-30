@@ -27,8 +27,8 @@ public class MonsterController {
 	        return monsterService.getAll();
 	   }
 	    @GetMapping("/monsters/{id}")
-	    public Monster getOne ( @PathVariable ( value = " id " ) long id ) {
-	        return monsterService.get ( id ) ;
+	    public Monster getOne ( @PathVariable ( value = "id" ) long id ) {
+	        return monsterService.get (id) ;
 	    }
 	    @PostMapping ("/monsters")
 	    public void post(Monster monster) {
